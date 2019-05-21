@@ -1,6 +1,20 @@
 import numpy as np
 
 def warpImage(inputIm, refIm, H):
+    """ Warps Input Image onto the Reference Image using the homography matrix
+    H via inverse warp.
+
+    Args:
+        inputIm (ndarray): Image to be warped.
+        refIm (ndarray): Reference Image.
+        H (type): Description of parameter `H`.
+
+    Returns:
+        (ndarray, ndarray): Returns the warped version of the input image and
+        the warped input image on the reference image.
+
+    """
+
     H_inv = np.linalg.inv(H)
     inputH, inputW, c = inputIm.shape
     outputH, outputW, c = refIm.shape
